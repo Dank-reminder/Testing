@@ -1,0 +1,39 @@
+{
+    "606849621": {
+        "Name": "JailBreak",
+        "Functions": {
+            "checkcaller": true,
+            "getconstants": true,
+            "getgc": true,
+            "getgenv": true,
+            "getnamecallmethod": true,
+            "getprotos": true,
+            "getrawmetatable": true,
+            "getthreadidentity": true,
+            "getupvalue": true,
+            "getupvalues": true,
+            "islclosure": true,
+            "makereadonly": true,
+            "makewriteable": true,
+            "newcclosure": true,
+            "newdrawing": true,
+            "request": true,
+            "require": true,
+            "setconstant": true,
+            "setthreadidentity": true,
+            "setupvalue": true,
+            "traceback": true
+        }
+    },
+    "292439477": {
+        "Name": "Phantom Forces",
+        "Functions": {
+            "getgc": true,
+            "getupvalues": true,
+            "hookfunction": true,
+            "islclosure": true,
+            "newdrawing": true,
+            "require": true
+        }
+    }
+}
