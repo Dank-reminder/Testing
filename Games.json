@@ -35,5 +35,19 @@
             "newdrawing": true,
             "require": true
         }
+    },
+    "286090429": {
+        "Name": "Arsenal",
+        "Functions": {
+            "checkcaller": true,
+            "getgc": true,
+            "getinfo": true,
+            "getrawmetatable": true,
+            "islclosure": true,
+            "makereadonly": true,
+            "makewriteable": true,
+            "newcclosure": true,
+            "newdrawing": true
+        }
     }
 }
