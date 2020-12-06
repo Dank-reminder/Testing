@@ -29,6 +29,7 @@
         "Name": "Phantom Forces",
         "Functions": {
             "getgc": true,
+            "getinfo": true,
             "getupvalues": true,
             "hookfunction": true,
             "islclosure": true,
