@@ -31,7 +31,6 @@
             "getgc": true,
             "getinfo": true,
             "getupvalues": true,
-            "hookfunction": true,
             "islclosure": true,
             "newdrawing": true,
             "require": true
@@ -45,6 +44,18 @@
             "getinfo": true,
             "getrawmetatable": true,
             "islclosure": true,
+            "makereadonly": true,
+            "makewriteable": true,
+            "newcclosure": true,
+            "newdrawing": true
+        }
+    },
+    "2377868063": {
+        "Name": "Strucid",
+        "Functions": {
+            "getnamecallmethod": true,
+            "getrawmetatable": true,
+            "hookfunction": true,
             "makereadonly": true,
             "makewriteable": true,
             "newcclosure": true,
