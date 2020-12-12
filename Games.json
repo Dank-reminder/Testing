@@ -55,11 +55,14 @@
         "Functions": {
             "getnamecallmethod": true,
             "getrawmetatable": true,
-            "hookfunction": true,
+            "getsenv": true,
+            "getupvalue": true,
             "makereadonly": true,
             "makewriteable": true,
             "newcclosure": true,
-            "newdrawing": true
+            "newdrawing": true,
+            "require": true,
+            "setupvalue": true
         }
     }
 }
