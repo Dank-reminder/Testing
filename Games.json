@@ -30,7 +30,7 @@
         "Functions": {
             "getgc": true,
             "getinfo": true,
-            "getupvalues": true,
+            "hookfunction": true,
             "islclosure": true,
             "newdrawing": true,
             "require": true
