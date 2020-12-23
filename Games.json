@@ -65,5 +65,37 @@
             "newdrawing": true,
             "require": true
         }
+    },
+    "2633045061": {
+        "Name": "Strucid BR Queue",
+        "Functions": {
+            "getgc": true,
+            "getinfo": true,
+            "getnamecallmethod": true,
+            "getrawmetatable": true,
+            "getupvalue": true,
+            "hookfunction": true,
+            "makereadonly": true,
+            "makewriteable": true,
+            "newcclosure": true,
+            "newdrawing": true,
+            "require": true
+        }
+    },
+    "2674164583": {
+        "Name": "Strucid Battle Royale",
+        "Functions": {
+            "getgc": true,
+            "getinfo": true,
+            "getnamecallmethod": true,
+            "getrawmetatable": true,
+            "getupvalue": true,
+            "hookfunction": true,
+            "makereadonly": true,
+            "makewriteable": true,
+            "newcclosure": true,
+            "newdrawing": true,
+            "require": true
+        }
     }
 }
