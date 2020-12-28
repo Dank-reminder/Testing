@@ -5,7 +5,6 @@
             "checkcaller": true,
             "getconstants": true,
             "getgc": true,
-            "getgenv": true,
             "getnamecallmethod": true,
             "getproto": true,
             "getrawmetatable": true,
