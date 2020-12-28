@@ -7,7 +7,7 @@
             "getgc": true,
             "getgenv": true,
             "getnamecallmethod": true,
-            "getprotos": true,
+            "getproto": true,
             "getrawmetatable": true,
             "getthreadidentity": true,
             "getupvalue": true,
