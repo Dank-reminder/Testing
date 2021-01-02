@@ -67,7 +67,8 @@
             "makewriteable": true,
             "newcclosure": true,
             "newdrawing": true,
-            "require": true
+            "require": true,
+            "traceback": true
         }
     },
     "2633045061": {
