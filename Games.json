@@ -3,6 +3,7 @@
         "Name": "JailBreak",
         "Functions": {
             "checkcaller": true,
+            "fireclickdetector": true,
             "getconstants": true,
             "getgc": true,
             "getnamecallmethod": true,
