@@ -811,10 +811,8 @@ Library.Init = function(name)
 	
 	if syn and syn.protect_gui then
 		syn.protect_gui(Library.Gui)
-		Library.Gui.Parent = CoreGui
-	elseif gethui then
-		Library.Gui.Parent = gethui()
 	end
+	Library.Gui.Parent = CoreGui
 
 	Library.Gui.Main.Left.Close.MouseButton1Click:Connect(function()
 		Library.Opened = not Library.Opened

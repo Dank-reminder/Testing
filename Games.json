@@ -31,7 +31,6 @@
             "getinfo": true,
             "getrawmetatable": true,
             "getupvalue": true,
-            "hookfunction": true,
             "islclosure": true,
             "makereadonly": true,
             "makewriteable": true,
