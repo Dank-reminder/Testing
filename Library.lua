@@ -827,7 +827,7 @@ Library.Init = function(name)
 	Library.Gui.Main:TweenSize(UDim2.new(0, 545, 0, 319), "InOut", "Sine", 0.4, true)
 
 	if isfile("EvoConfigs_" .. game.PlaceId .. ".json") then
-		Library.Configs = HttpService:JSONDecode(readfile("EvoConfigs_" .. game.PlaceId .. ".json"))
+		Library.Configs = HttpService:JSONDecode(readfile("EvoConfigs_" .. game.PlaceId .. ".json") or {})
 	end
 end
 
