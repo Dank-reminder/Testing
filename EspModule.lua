@@ -24,16 +24,16 @@ local TracerStart = Vector2.new(workspace.CurrentCamera.ViewportSize.X / 2, work
 
 local CheckVis = newcclosure(function(esp, inview)
 	if not inview or (Esp.Settings.TeamCheck and Esp.TeamCheck(esp.Player)) or (esp.Root.Position - workspace.CurrentCamera.CFrame.Position).Magnitude > Esp.Settings.Range then
-		v.Name.Visible = false
-		v.Box.Visible = false
-		v.Tracer.Visible = false
-		v.Distance.Visible = false
+		esp.Name.Visible = false
+		esp.Box.Visible = false
+		esp.Tracer.Visible = false
+		esp.Distance.Visible = false
 		return
 	end
-	v.Name.Visible = Esp.Settings.Name
-	v.Box.Visible = Esp.Settings.Box
-	v.Tracer.Visible = Esp.Settings.Tracer
-	v.Distance.Visible = Esp.Settings.Distance
+	esp.Name.Visible = Esp.Settings.Name
+	esp.Box.Visible = Esp.Settings.Box
+	esp.Tracer.Visible = Esp.Settings.Tracer
+	esp.Distance.Visible = Esp.Settings.Distance
 end)
 
 -- newcclosure breaks Drawing.new apparently
