@@ -1,4 +1,26 @@
 {
+    "286090429": {
+        "Name": "Arsenal",
+        "Functions": {
+            "checkcaller": true,
+            "getgc": true,
+            "getinfo": true,
+            "getrawmetatable": true,
+            "islclosure": true,
+            "makereadonly": true,
+            "makewriteable": true,
+            "newcclosure": true,
+            "newdrawing": true
+        }
+    },
+    "3233893879": {
+        "Name": "Bad Business",
+        "Functions": {
+            "newcclosure": true,
+            "newdrawing": true,
+            "require": true
+        }
+    },
     "606849621": {
         "Name": "JailBreak",
         "Functions": {
@@ -40,22 +62,26 @@
             "require": true
         }
     },
-    "286090429": {
-        "Name": "Arsenal",
+    "2377868063": {
+        "Name": "Strucid",
         "Functions": {
-            "checkcaller": true,
             "getgc": true,
-            "getinfo": true,
+            "getnamecallmethod": true,
             "getrawmetatable": true,
-            "islclosure": true,
+            "getrenv": true,
+            "getsenv": true,
+            "getupvalue": true,
+            "hookfunction": true,
             "makereadonly": true,
             "makewriteable": true,
             "newcclosure": true,
-            "newdrawing": true
+            "newdrawing": true,
+            "require": true,
+            "traceback": true
         }
     },
-    "2377868063": {
-        "Name": "Strucid",
+    "2674164583": {
+        "Name": "Strucid Battle Royale",
         "Functions": {
             "getgc": true,
             "getnamecallmethod": true,
@@ -75,23 +101,5 @@
     "2633045061": {
         "Name": "Strucid BR Queue",
         "Functions": {}
-    },
-    "2674164583": {
-        "Name": "Strucid Battle Royale",
-        "Functions": {
-            "getgc": true,
-            "getnamecallmethod": true,
-            "getrawmetatable": true,
-            "getrenv": true,
-            "getsenv": true,
-            "getupvalue": true,
-            "hookfunction": true,
-            "makereadonly": true,
-            "makewriteable": true,
-            "newcclosure": true,
-            "newdrawing": true,
-            "require": true,
-            "traceback": true
-        }
     }
 }
