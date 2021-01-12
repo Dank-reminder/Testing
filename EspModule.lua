@@ -126,6 +126,16 @@ Esp.GetHealth = newcclosure(function(plr)
 	return plr.Character.Humanoid.Health / plr.Character.Humanoid.MaxHealth
 end) -- can be overwritten for games that don't use default characters
 
+Esp.UpdateTextSize = newcclosure(function(num)
+	Esp.Settings.TextSize = num
+	for i, v in next, Esp.Container do
+		if v.Player then
+			v.Name.Size = num
+			v.Distance.Size = num
+		end
+	end
+end)
+
 Esp.UpdateTracerStart = newcclosure(function(pos)
     TracerStart = pos
     for i, v in next, Esp.Container do
@@ -143,16 +153,16 @@ Esp.ToggleRainbow = newcclosure(function(bool)
 			for i, v in next, Esp.Container do
 				v.Name.Color = Colour
 				v.Box.Color = Colour
-				v.Tracer.Color = Colour
 				v.Distance.Color = Colour
+				v.Tracer.Color = Colour
 			end
 		end)
 	else
 		for i, v in next, Esp.Container do
 			v.Name.Color = v.Colour
 			v.Box.Color = v.Colour
-			v.Tracer.Color = v.Colour
 			v.Distance.Color = v.Colour
+			v.Tracer.Color = v.Colour
 		end
 	end
 end)
