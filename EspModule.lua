@@ -82,7 +82,7 @@ Esp.Add = function(plr, root, col)
 			if Vis then
 				local X = 2200 / Pos.Z
 				local BoxSize = Vector2.new(X, X * 1.4)
-				local Health = GetHealth(plr)
+				local Health = Esp.GetHealth(plr)
 				Holder.Name.Position = Vector2.new(Pos.X, Pos.Y - BoxSize.X / 2 - (4 + Esp.Settings.TextSize))
 				Holder.Box.Size = BoxSize
 				Holder.Box.Position = Vector2.new(Pos.X - BoxSize.X / 2, Pos.Y - BoxSize.Y / 2)
