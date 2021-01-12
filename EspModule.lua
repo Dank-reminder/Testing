@@ -141,8 +141,7 @@ Esp.UpdateTracerStart = newcclosure(function(pos)
     end
 end)
 
--- newcclosure breaks this too :(
-Esp.ToggleRainbow = function(bool)
+Esp.ToggleRainbow = newcclosure(function(bool)
 	if Esp.RainbowConn then
 		Esp.RainbowConn:Disconnect()
 	end
@@ -164,6 +163,6 @@ Esp.ToggleRainbow = function(bool)
 			v.Tracer.Color = v.Colour
 		end
 	end
-end
+end)
 
 return Esp
