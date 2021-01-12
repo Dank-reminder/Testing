@@ -10,11 +10,12 @@ local Esp = {
 	Settings = {
 		Enabled = false,
         Name = false,
-        Box = false,
-        Tracer = false,
-        Distance = false,
+		Box = false,
+		Health = false,
+		Distance = false,
+		Tracer = false,
         TeamCheck = false,
-        TextSize = 16,
+		TextSize = 16,
         Range = 0
 	}
 }
@@ -26,14 +27,16 @@ local CheckVis = newcclosure(function(esp, inview)
 	if not inview or (Esp.Settings.TeamCheck and Esp.TeamCheck(esp.Player)) or (esp.Root.Position - workspace.CurrentCamera.CFrame.Position).Magnitude > Esp.Settings.Range then
 		esp.Name.Visible = false
 		esp.Box.Visible = false
-		esp.Tracer.Visible = false
+		esp.Health.Visible = false
 		esp.Distance.Visible = false
+		esp.Tracer.Visible = false
 		return
 	end
 	esp.Name.Visible = Esp.Settings.Name
 	esp.Box.Visible = Esp.Settings.Box
-	esp.Tracer.Visible = Esp.Settings.Tracer
+	esp.Health.Visible = Esp.Settings.Health
 	esp.Distance.Visible = Esp.Settings.Distance
+	esp.Tracer.Visible = Esp.Settings.Tracer
 end)
 
 -- newcclosure breaks Drawing.new apparently
@@ -47,8 +50,9 @@ Esp.Add = function(plr, root, col)
 	local Holder = {
 		Name = Drawing.new("Text"),
 		Box = Drawing.new("Square"),
-		Tracer = Drawing.new("Line"),
+		Health = Drawing.new("Square"),
 		Distance = Drawing.new("Text"),
+		Tracer = Drawing.new("Line"),
 		Player = plr,
 		Root = root,
 		Colour = col
@@ -61,33 +65,41 @@ Esp.Add = function(plr, root, col)
     Holder.Name.Outline = true
     Holder.Box.Thickness = 1
 	Holder.Box.Color = col
-    Holder.Box.Filled = false
-    Holder.Tracer.From = TracerStart
-	Holder.Tracer.Color = col
-    Holder.Tracer.Thickness = 1
+	Holder.Box.Filled = false
+	Holder.Health.Thickness = 1
+	Holder.Health.Color = Color3.fromRGB(0, 255, 0)
+    Holder.Health.Filled = false
     Holder.Distance.Size = Esp.Settings.TextSize
     Holder.Distance.Center = true
 	Holder.Distance.Color = col
-    Holder.Distance.Outline = true
+	Holder.Distance.Outline = true
+	Holder.Tracer.From = TracerStart
+	Holder.Tracer.Color = col
+    Holder.Tracer.Thickness = 1
 	Holder.Connection = game:GetService("RunService").Stepped:Connect(function()
 		if Esp.Settings.Enabled then
 			local Pos, Vis = workspace.CurrentCamera:WorldToViewportPoint(root.Position)
 			if Vis then
 				local X = 2200 / Pos.Z
 				local BoxSize = Vector2.new(X, X * 1.4)
+				local Health = GetHealth(plr)
 				Holder.Name.Position = Vector2.new(Pos.X, Pos.Y - BoxSize.X / 2 - (4 + Esp.Settings.TextSize))
 				Holder.Box.Size = BoxSize
 				Holder.Box.Position = Vector2.new(Pos.X - BoxSize.X / 2, Pos.Y - BoxSize.Y / 2)
-				Holder.Tracer.To = Vector2.new(Pos.X, Pos.Y + BoxSize.Y / 2)
+				Holder.Health.Color = Health > 0.66 and Color3.new(0, 1, 0) or Health < 0.33 and Color3.new(1, 0, 0) or Color3.new(1, 1, 0)
+				Holder.Health.Size = Vector2.new(15, BoxSize.Y * Health)
+				Holder.Health.Position = Vector2.new(Pos.X - (BoxSize.X + 20), Pos.Y - BoxSize.Y / 2)
 				Holder.Distance.Text = math.floor((root.Position - workspace.CurrentCamera.CFrame.Position).Magnitude) .. " Studs"
 				Holder.Distance.Position = Vector2.new(Pos.X, Pos.Y + BoxSize.X / 2 + 4)
+				Holder.Tracer.To = Vector2.new(Pos.X, Pos.Y + BoxSize.Y / 2)
 			end
 			CheckVis(Holder, Vis)
 		elseif Holder.Name.Visible == true then
 			Holder.Name.Visible = false
 			Holder.Box.Visible = false
-			Holder.Tracer.Visible = false
+			Holder.Health.Visible = false
 			Holder.Distance.Visible = false
+			Holder.Tracer.Visible = false
 		end
 	end)
 end
@@ -98,8 +110,9 @@ Esp.Remove = newcclosure(function(root)
 			v.Connection:Disconnect()
 			v.Name:Remove()
 			v.Box:Remove()
-			v.Tracer:Remove()
+			v.Health:Remove()
 			v.Distance:Remove()
+			v.Tracer:Remove()
 		end
 	end
 	Esp.Container[root] = nil
@@ -108,6 +121,10 @@ end)
 Esp.TeamCheck = newcclosure(function(plr)
 	return plr.Team == Player.Team
 end) -- can be overwritten for games that don't use default teams
+
+Esp.GetHealth = newcclosure(function(plr)
+	return plr.Character.Humanoid.Health / plr.Character.Humanoid.MaxHealth
+end) -- can be overwritten for games that don't use default characters
 
 Esp.UpdateTracerStart = newcclosure(function(pos)
     TracerStart = pos
