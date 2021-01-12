@@ -129,10 +129,8 @@ end) -- can be overwritten for games that don't use default characters
 Esp.UpdateTextSize = newcclosure(function(num)
 	Esp.Settings.TextSize = num
 	for i, v in next, Esp.Container do
-		if v.Player then
-			v.Name.Size = num
-			v.Distance.Size = num
-		end
+		v.Name.Size = num
+		v.Distance.Size = num
 	end
 end)
 
@@ -143,7 +141,8 @@ Esp.UpdateTracerStart = newcclosure(function(pos)
     end
 end)
 
-Esp.ToggleRainbow = newcclosure(function(bool)
+-- newcclosure breaks this too :(
+Esp.ToggleRainbow = function(bool)
 	if Esp.RainbowConn then
 		Esp.RainbowConn:Disconnect()
 	end
@@ -165,6 +164,6 @@ Esp.ToggleRainbow = newcclosure(function(bool)
 			v.Tracer.Color = v.Colour
 		end
 	end
-end)
+end
 
 return Esp
