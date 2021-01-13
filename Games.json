@@ -16,10 +16,10 @@
     "3233893879": {
         "Name": "Bad Business",
         "Functions": {
-            "getrenv": true,
             "newcclosure": true,
             "newdrawing": true,
-            "require": true
+            "require": true,
+            "traceback": true
         }
     },
     "606849621": {
