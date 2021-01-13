@@ -17,8 +17,6 @@
         "Name": "Bad Business",
         "Functions": {
             "getrenv": true,
-            "makereadonly": true,
-            "makewriteable": true,
             "newcclosure": true,
             "newdrawing": true,
             "require": true
