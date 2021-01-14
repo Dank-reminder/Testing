@@ -92,7 +92,7 @@ Esp.Add = function(plr, root, col)
 	Holder.Tracer.Color = col
 	Holder.Tracer.Thickness = 1
 	root.AncestryChanged:Connect(function(c, p)
-		if p == nil then
+		if not root:IsDescendantOf(workspace) then
 			Esp.Remove(root)
 		end
 	end)
@@ -157,7 +157,7 @@ Esp.AddItem = function(name, item, col)
 	Holder.Tracer.Color = col
 	Holder.Tracer.Thickness = 1
 	item.AncestryChanged:Connect(function(c, p)
-		if p == nil then
+		if not item:IsDescendantOf(workspace) then
 			Esp.RemoveItem(item)
 		end
 	end)
