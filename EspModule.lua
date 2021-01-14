@@ -57,9 +57,13 @@ end)
 -- newcclosure breaks Drawing.new apparently
 Esp.Add = function(plr, root, col)
 	if Esp.Container[root] then
-		for i, v in next, Esp.Container[root] do
-			v:Remove()
-		end
+		local Container = Esp.Container[root]
+		Container.Connection:Disconnect()
+		Container.Name:Remove()
+		Container.Box:Remove()
+		Container.Health:Remove()
+		Container.Distance:Remove()
+		Container.Tracer:Remove()
 		Esp.Container[root] = nil
 	end
 	local Holder = {
@@ -126,9 +130,12 @@ end
 
 Esp.AddItem = function(name, item, col)
 	if Esp.ItemContainer[item] then
-		for i, v in next, Esp.ItemContainer[item] do
-			v:Remove()
-		end
+		local Container = Esp.ItemContainer[item]
+		Container.Connection:Disconnect()
+		Container.Name:Remove()
+		Container.Box:Remove()
+		Container.Distance:Remove()
+		Container.Tracer:Remove()
 		Esp.ItemContainer[item] = nil
 	end
 	local Holder = {
