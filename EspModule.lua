@@ -206,6 +206,9 @@ Esp.TeamCheck = newcclosure(function(plr)
 end) -- can be overwritten for games that don't use default teams
 
 Esp.GetHealth = newcclosure(function(plr)
+	if not (plr.Character and plr.Character:FindFirstChild("Humanoid")) then
+		return 0
+	end
 	return plr.Character.Humanoid.Health / plr.Character.Humanoid.MaxHealth
 end) -- can be overwritten for games that don't use default characters
 
