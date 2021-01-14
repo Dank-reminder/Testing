@@ -90,7 +90,12 @@ Esp.Add = function(plr, root, col)
 	Holder.Distance.Outline = true
 	Holder.Tracer.From = TracerStart
 	Holder.Tracer.Color = col
-    Holder.Tracer.Thickness = 1
+	Holder.Tracer.Thickness = 1
+	root.AncestryChanged:Connect(function(c, p)
+		if p == nil then
+			Esp.Remove(root)
+		end
+	end)
 	Holder.Connection = game:GetService("RunService").Stepped:Connect(function()
 		if Esp.Settings.Enabled then
 			local Pos, Vis = workspace.CurrentCamera:WorldToViewportPoint(root.Position)
@@ -150,7 +155,12 @@ Esp.AddItem = function(name, item, col)
 	Holder.Distance.Outline = true
 	Holder.Tracer.From = TracerStart
 	Holder.Tracer.Color = col
-    Holder.Tracer.Thickness = 1
+	Holder.Tracer.Thickness = 1
+	item.AncestryChanged:Connect(function(c, p)
+		if p == nil then
+			Esp.Remove(item)
+		end
+	end)
 	Holder.Connection = game:GetService("RunService").Stepped:Connect(function()
 		if Esp.Settings.Enabled then
 			local Pos, Vis = workspace.CurrentCamera:WorldToViewportPoint(item.Position)
