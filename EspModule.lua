@@ -158,7 +158,7 @@ Esp.AddItem = function(name, item, col)
 	Holder.Tracer.Thickness = 1
 	item.AncestryChanged:Connect(function(c, p)
 		if p == nil then
-			Esp.Remove(item)
+			Esp.RemoveItem(item)
 		end
 	end)
 	Holder.Connection = game:GetService("RunService").Stepped:Connect(function()
