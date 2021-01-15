@@ -50,15 +50,18 @@
     "292439477": {
         "Name": "Phantom Forces",
         "Functions": {
+            "getconstants": true,
             "getgc": true,
             "getinfo": true,
             "getrawmetatable": true,
             "getupvalue": true,
+            "hookfunction": true,
             "islclosure": true,
             "makereadonly": true,
             "makewriteable": true,
             "newcclosure": true,
             "newdrawing": true,
+            "request": true,
             "require": true
         }
     },
